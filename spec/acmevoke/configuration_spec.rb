@@ -184,14 +184,24 @@ describe Acmevoke::Configuration do
 		let(:base_env) { minimal_env.merge("ACMEVOKE_MAIL_DELIVERY_METHOD" => "sendmail") }
 		let(:env) { base_env }
 
-		it "sets correct defaults" do
-			expect(config.mail_delivery_config).to eq(
-				location:  "/usr/sbin/sendmail",
-				arguments: ["-i"]
-			)
+		context "by default" do
+			it "sets correct defaults" do
+				allow(File).to receive(:exists?).and_return(true)
+				allow(File).to receive(:executable?).and_return(true)
+
+				expect(config.mail_delivery_config).to eq(
+					location:  "/usr/sbin/sendmail",
+					arguments: ["-i"]
+				)
+			end
 		end
 
 		context "when a custom set of arguments is provided" do
+			before(:each) do
+				allow(File).to receive(:exists?).and_return(true)
+				allow(File).to receive(:executable?).and_return(true)
+			end
+
 			let(:env) { base_env.merge("ACMEVOKE_MAIL_DELIVERY_CONFIG_SENDMAIL_OPTIONS" => "-p -q --start") }
 
 			it "sets the config option correctly" do
