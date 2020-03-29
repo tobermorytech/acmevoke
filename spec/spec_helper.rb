@@ -6,7 +6,7 @@ require 'rspec/core'
 require 'rspec/mocks'
 require "rack/test"
 
-require "pry-rescue/rspec"
+require "pry-rescue/rspec" if ENV["RSPEC_PRY_RESCUE"]
 
 require 'simplecov'
 SimpleCov.start do
