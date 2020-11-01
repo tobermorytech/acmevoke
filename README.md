@@ -102,8 +102,7 @@ include:
 If all that sounds like more trouble than you'd rather go to, a fully-managed
 cloud-hosted ACMEvoke service is available, which takes care of all of the above
 and more, for a reasonable monthly fee.  Contact
-[`sales@tobermorytech.com`](mailto:sales@tobermorytech.com?subject=Hosted
-ACMEvoke inquiry) to find out more.
+[`sales@tobermorytech.com`](mailto:sales@tobermorytech.com?subject=Hosted+ACMEvoke+inquiry) to find out more.
 
 
 ## Mail Delivery Configuration
